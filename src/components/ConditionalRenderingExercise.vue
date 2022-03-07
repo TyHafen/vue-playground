@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,7 +67,7 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if>
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
@@ -122,38 +122,38 @@
 
 
 <script>
-import { reactive } from "vue";
+  import { reactive } from "vue";
 
-export default {
-  name: "condtional-rendering-exercise",
-  setup() {
-    const state = reactive({
-      //add a property to toggle the player-card here.
-      //add a property to set the number value here.
-      player: {
-        photo: "https://robohash.org/D$",
-        name: "D$",
-        position: "WR",
-        number: 4,
-      },
-    });
-    return {
-      state,
-    };
-  },
-};
+  export default {
+    name: "condtional-rendering-exercise",
+    setup() {
+      const state = reactive({
+        showPlayer: false,
+        grade: 94,
+        player: {
+          photo: "https://robohash.org/D$",
+          name: "D$",
+          position: "WR",
+          number: 4,
+        },
+      });
+      return {
+        state,
+      };
+    },
+  };
 </script>
 
 
 <style scoped>
-.player-card {
-  border: 1px solid rgba(154, 154, 156, 0.4);
-  background-color: rgba(154, 154, 156, 0.4);
-  margin: 1rem;
-  border-radius: 5px;
-}
+  .player-card {
+    border: 1px solid rgba(154, 154, 156, 0.4);
+    background-color: rgba(154, 154, 156, 0.4);
+    margin: 1rem;
+    border-radius: 5px;
+  }
 
-.img {
-  height: 10rem;
-}
+  .img {
+    height: 10rem;
+  }
 </style>
